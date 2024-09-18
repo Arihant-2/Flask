@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>BMI Calculator</h1>
+    <form method="POST">
+        <label for="weight">Enter your weight (kg):</label><br>
+        <input type="text" id="weight" name="weight" placeholder="Weight in kilograms"><br><br>
+
+        <label for="height">Enter your height (m):</label><br>
+        <input type="text" id="height" name="height" placeholder="Height in meters"><br><br>
+
+        <button type="submit">Calculate BMI</button>
+    </form>
+
+    <div class="result">
+        {% if bmi %}
+            <p>Your BMI is: {{ bmi|round(2) }}</p>
+            <p>You are in: {{ state }}</p>
+        {% elif state %}
+            <p>{{ state }}</p>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>
